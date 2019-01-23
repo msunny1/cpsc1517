@@ -1,0 +1,28 @@
+﻿        <!--this will be the menu area-->
+<div class="'navbar navbar-default navbar-fixed-top">
+    <!--Brand area of the menu-->
+    <div class="navbar-header">
+        <a class="navbar-brand" style="font-size:x-large">
+            <strong>Razer Samples</strong>
+        </a>
+    </div>
+    <!--menu: menu root item-->
+    <ul class="nav navbar-nav">
+        <!--root menu item-->
+        <li>
+            <a href="@Href("~/Default.cshtml")">Home</a>
+        </li>
+        <!--Create a drop down menu list(Submenus)-->
+        <li Class="dropdown">
+            <!--it the toggle root menu item-->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Controls<b class="caret"></b></a>
+            <!--code the actual sub-menu items-->
+            <ul class="dropdown-menu">
+                <li><a href="@Href("~/Control/TextBoxes.cshtml")">TextBoxes</a>
+                <li><a href="@Href("~/Control/RadioButtons.cshtml")">RadioButtons</a>
+                <li><a href="@Href("~/Control/CheckBoxes.cshtml")">CheckBoxes</a>
+                <li><a href="@Href("~/Control/DropDownList.cshtml")">DropDownMenu</a>
+            </ul>
+        </li>
+    </ul>
+</div>

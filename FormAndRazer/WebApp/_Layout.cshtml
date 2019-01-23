@@ -10,8 +10,11 @@
 
 </head>
 <body>
-    @DateTime.Today.ToLongDateString()
-    <div class="container">
+    <div class="container-fluid">
+
+        @RenderPage("~/_menu.cshtml")
+       
+        <br /> <br />
         <div class="jumbotron">
             @RenderSection("banner")
 
