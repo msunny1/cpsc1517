@@ -1,5 +1,70 @@
 ﻿@{
     Layout = "~/_Layout.cshtml";
+    Page.title = "RadioButton";
+    //obtain the incoming data values
+    var language = Request.Form["languagegroup"];
+    var script = Request.Form["scriptgroup"];
 }
 @section banner {
-    <h1>RAdioButtons</h1>}
+    <h1>RAdioButtons</h1>
+}
+
+
+@if (IsPost)
+{
+    if (language.IsEmpty() || script.IsEmpty())
+    {
+        <p><span style="color:firebrick">MAke a selection from both coding and scripting</span></p>
+    }
+}
+else
+{
+    if (language.Equals("C#", StringComparison.OrdinalIgnoreCase))
+    {
+        <P>You will greatly enjoy CPSC1517 as we use C#</P>
+    }
+    else
+    {
+        <p>Too bad. The CPSC1517 use c#.</p>
+    }
+    if (script.Equals("C#", StringComparison.OrdinalIgnoreCase))
+    {
+        <P>You will greatly enjoy CPSC1517 as we use C#</P>
+    }
+    else
+    {
+        <p>Too bad. The CPSC1517 use c#.</p>
+    }
+}
+
+<!--What makes a radiobutton group is the fact that the id=perameter is the same on each control
+    if you wish multiple radiobutton groups on your form, then each group has a unique id-->
+
+<form id="theform" method="post">
+    <div class="row">
+        <div class="col-m-offset-2">
+            <label id="languagegroup">Select your favourite programming language</label><br />
+            <input type="radio" id="languagegroup" name="languagegroup" value="C#" checked="@(language.Equals("C#")?true:false)"/>C#<br />
+            <input type="radio" id="languagegroup" name="languagegroup" value="Visual basic" checked="@(language.Equals("Visual basic")?true:false)" />Visual basic<br />
+            <input type="radio" id="languagegroup" name="languagegroup" value="Objective"checked="@(language.Equals("objective")?true:false)" />Objective<br />
+            <input type="radio" id="languagegroup" name="languagegroup" value="Cobol"checked="@(language.Equals("Cobol")?true:false)" />Cobol<br />
+            <input type="radio" id="languagegroup" name="languagegroup" value="Fortran"checked="@(language.Equals("Fortran")?true:false)" />Fortran<br />
+            <input type="radio" id="languagegroup" name="languagegroup" value="Pascal"checked="@(language.Equals("Pascal")?true:false)" />Pascal<br />
+            <br />
+            <label id="scriptgroup">Select your favourite scripting group</label>
+            <input type="radio" id="scriptgroup" name="scriptgroup" value="Java"checked="@(script.Equals("Java")?true:false)" />Java <br />
+            <input type="radio" id="scriptgroup" name="scriptgroup" value="Php" checked="@(script.Equals("PHP")?true:false)"/>PHP <br />
+            <input type="radio" id="scriptgroup" name="scriptgroup" value="Razor" checked="@(script.Equals("Razor")?true:false)"/>Razor <br />
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-offset-3">
+            <buton>
+                <button type="radio" class="bt"id="" name="resetbutton" class="btn" value="reset">Submit</button>
+            </buton>
+
+        </div>
+    </div>
+</form>
